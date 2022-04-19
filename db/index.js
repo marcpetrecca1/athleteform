@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+mongoose.promise = Promise;
 
-const PlayerProfile = require('../db/schema.js');
+const PlayerProfile = "mongodb://localhost/";
 
 const db = mongoose.connect(PlayerProfile)
-  .then(() => (console.log('successfully connect to mongo')))
-  .catch((err) = (console.log(err)));
+  .then((data) => (console.log('successfully connect to mongo')))
+  .catch((error) => (console.log(error)));
 
 module.exports = db;
