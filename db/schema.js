@@ -6,6 +6,7 @@ const player = mongoose.Schema({
   "name": {type: String, required: true},
   "dateOfBirth": {type: Date, required: true},
   "location": {type: String, required: true},
+  "team": {type: String, required: true},
   "gender": {type: String, required: true},
   "sports": {type: [String], required: true},
   "about": {type: String, required: true},
