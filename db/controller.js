@@ -3,9 +3,8 @@ const PlayerProfile = require("./schema");
 
 exports.createProfile = function(req, res) {
   return PlayerProfile.create({
-    "id": new mongoose.Types.ObjectId(),
     "name": req.body.name,
-    "dateOfBirth": req.body.birthday,
+    "dateOfBirth": req.body.dateOfBirth,
     "location": req.body.location,
     "team": req.body.team,
     "gender": req.body.gender,
@@ -36,3 +35,13 @@ exports.retrieveProfiles = function(req, res) {
     res.sendStatus(500);
   })
 };
+
+exports.deleteDatabase = function(req, res) {
+  return PlayerProfile.collection.drop()
+  .then(() => {
+    res.sendStatus(202)
+  })
+  .catch((error) => {
+    res.sendStatus(404)
+  })
+}

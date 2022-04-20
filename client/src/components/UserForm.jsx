@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from 'react';
-import InitialData from './InitialData.js';
-import PersonalData from './PersonalData.js';
-import Confirm from './Confirm.js';
+import React, {useState} from 'react';
+import InitialData from './InitialData.jsx';
+import PersonalData from './PersonalData.jsx';
+import Confirm from './Confirm.jsx';
+import ProfileList from './ProfileList.jsx';
 
 const UserForm = () => {
 
   const [playerInformation, setPlayerInfo] = useState({
     step: 1,
     name: '',
-    birthday: '',
+    dateOfBirth: '',
     location: '',
     team: '',
     gender: '',
@@ -17,6 +18,8 @@ const UserForm = () => {
     interests: '',
     profileImage: ''
   });
+
+  const [playerList, setPlayerlist] = useState([])
 
   const nextStep = (playerInformation) => {
     const { step } = playerInformation;
@@ -32,16 +35,19 @@ const UserForm = () => {
     });
   };
 
-  const handleChange = (input, e) => {
-    setPlayerInfo({
-      [input]: e.target.value
-    })
+  const handleChange = (e, playerInformation, input) => {
+    let newState = JSON.parse(JSON.stringify(playerInformation));
+    newState[input] = e.target.value;
+    setPlayerInfo(newState);
   }
   
   switch(playerInformation.step) {
     case 1:
       return (
-        <InitialData nextStep={nextStep} handleChange={handleChange} playerInfo={playerInformation}/>
+        <React.Fragment>
+          <InitialData nextStep={nextStep} handleChange={handleChange} playerInfo={playerInformation}/>
+          <ProfileList playerList={playerList}/>  
+        </React.Fragment>
       )
     case 2: 
       return (
