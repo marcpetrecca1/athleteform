@@ -8,15 +8,15 @@ const UserForm = () => {
 
   const [playerInformation, setPlayerInfo] = useState({
     step: 1,
-    name: '',
-    dateOfBirth: '',
-    location: '',
-    team: '',
-    gender: '',
-    sports: [],
-    about: '',
-    interests: '',
-    profileImage: ''
+    name:'',
+    dateOfBirth:'',
+    location:'',
+    team:'',
+    gender:'',
+    sports:[],
+    about:'',
+    interests:'',
+    profileImage:''
   });
 
   const [playerList, setPlayerlist] = useState([])
@@ -35,11 +35,17 @@ const UserForm = () => {
     });
   };
 
-  const handleChange = (e, playerInformation, input) => {
-    let newState = JSON.parse(JSON.stringify(playerInformation));
-    newState[input] = e.target.value;
-    setPlayerInfo(newState);
-  }
+  // const handleChange = (e, playerInformation, input) => {
+  //   let newState = JSON.parse(JSON.stringify(playerInformation));
+  //   newState[input] = e.target.value;
+  //   setPlayerInfo(newState);
+  // }
+
+    const handleChange = input => e => {
+      setPlayerInfo({
+        [input]: e.target.value
+      })
+    }
   
   switch(playerInformation.step) {
     case 1:
@@ -51,7 +57,7 @@ const UserForm = () => {
       )
     case 2: 
       return (
-        <PersonalData prevStep={prevStep} handleChange={handleChange} playerInfo={playerInformation}/>
+        <PersonalData nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} playerInfo={playerInformation}/>
       )
     case 3:
       return (

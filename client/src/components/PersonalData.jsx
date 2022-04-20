@@ -1,15 +1,17 @@
 import React from 'react';
+import { AppBar, TextField, Toolbar, Button, IconButton, MenuIcon, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 
-const PersonalData = ({playerInfo, nextStep, prevStep}) => {
+const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
 
-  const forward = (e) => {
+  const forward = (e, playerInfo) => {
     e.preventDefault()
-    nextStep();
+    nextStep(playerInfo);
   };
 
-  const back = (e) => {
+  const back = (e, playerInfo) => {
     e.preventDefault();
-    prevStep();
+    prevStep(playerInfo);
   }
 
   const gender = 'gender';
@@ -44,6 +46,9 @@ const PersonalData = ({playerInfo, nextStep, prevStep}) => {
       <TextField 
         onChange={(e) => handleChange(e, playerInfo, profileImage)}
       />
+      <br/>
+      <Button variant="outlined" label="Continue" onClick={(e) => forward(e, playerInfo)}></Button>
+      <Button variant="outlined" label="Back" onClick={(e) => back(e, playerInfo)}></Button>
     </Box>
   )
 };
