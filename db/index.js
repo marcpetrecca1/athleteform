@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const config = require('./config.js');
 mongoose.promise = Promise;
 
-const PlayerProfile = "mongodb://localhost/";
+const PlayerProfile = config;
 
 const db = mongoose.connect(PlayerProfile)
   .then((data) => (console.log('successfully connect to mongo')))
