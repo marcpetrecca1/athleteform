@@ -18,32 +18,38 @@ const UserForm = () => {
     profileImage: ''
   });
 
-  const nextStep = () => {
+  const nextStep = (playerInformation) => {
     const { step } = playerInformation;
     setPlayerInfo({
       step: step + 1
     });
   };
 
-  const prevStep = () => {
+  const prevStep = (playerInformation) => {
     const { step } = playerInformation;
     setPlayerInfo({
       step: step - 1
     });
   };
+
+  const handleChange = (input, e) => {
+    setPlayerInfo({
+      [input]: e.target.value
+    })
+  }
   
-  switch(step) {
+  switch(playerInformation.step) {
     case 1:
       return (
-        <InitialData/>
+        <InitialData nextStep={nextStep} handleChange={handleChange} playerInfo={playerInformation}/>
       )
     case 2: 
       return (
-        <PersonalData/>
+        <PersonalData prevStep={prevStep} handleChange={handleChange} playerInfo={playerInformation}/>
       )
     case 3:
       return (
-        <Confirm/>
+        <Confirm prevStep={prevStep} playerInfo={playerInformation}/>
       )
   }
 };
