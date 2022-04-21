@@ -25,7 +25,7 @@ exports.createProfile = function(req, res) {
 };
 
 exports.retrieveProfiles = function(req, res) {
-  return PlayerProfile.find({})
+  return PlayerProfile.find({}).limit(5)
   .then((data) => {
     console.error(data);
     res.send(data)

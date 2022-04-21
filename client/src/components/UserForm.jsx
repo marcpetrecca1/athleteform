@@ -4,6 +4,7 @@ import PersonalData from './PersonalData.jsx';
 import Confirm from './Confirm.jsx';
 import ProfileList from './ProfileList.jsx';
 
+
 const UserForm = () => {
 
   const [playerInformation, setPlayerInfo] = useState({
@@ -41,19 +42,16 @@ const UserForm = () => {
   //   setPlayerInfo(newState);
   // }
 
-    const handleChange = input => e => {
+    const handleChange = (value, input) => {
       setPlayerInfo({
-        [input]: e.target.value
+        [input]: value
       })
     }
   
   switch(playerInformation.step) {
     case 1:
       return (
-        <React.Fragment>
-          <InitialData nextStep={nextStep} handleChange={handleChange} playerInfo={playerInformation}/>
-          <ProfileList playerList={playerList}/>  
-        </React.Fragment>
+        <InitialData nextStep={nextStep} handleChange={handleChange} playerInfo={playerInformation} />
       )
     case 2: 
       return (

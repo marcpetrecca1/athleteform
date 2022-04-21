@@ -1,8 +1,8 @@
 import React from 'react';
-import { AppBar, TextField, Toolbar, Button, IconButton, MenuIcon, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { AppBar, TextField, Toolbar, Button, IconButton, MenuIcon, Typography, Card, Grid } from '@mui/material';
+import { palette, Box } from '@mui/system';
 
-const InitialData = ({ playerInfo, nextStep, handleChange, setPlayerInfo}) => {
+const InitialData = ({ playerInfo, nextStep, handleChange}) => {
 
   const forward = (e, playerInfo) => {
     e.preventDefault()
@@ -15,38 +15,72 @@ const InitialData = ({ playerInfo, nextStep, handleChange, setPlayerInfo}) => {
   const team = 'team';
 
   return (
-    <Box sx={{flexgrow: 1, bgcolor: 'palette.primary.main' }} >
-      <AppBar title="Enter User Details" sx={{ color: 'blue' }}/>
-        <Toolbar>
-        </Toolbar>
-      <AppBar/>
-      <br/>
-      <TextField 
-        placeholder="Name"
-        onChange={(e) => handleChange(e, name)}
-        value={playerInfo.name}
-      />
-      <br/>
-      <TextField
-        placeholder="Date of birth"
-        onChange={(e) => handleChange(e, playerInfo, dateOfBirth)}
-        value={playerInfo.dateOfBirth}
-      />
-      <br/>
-      <TextField
-        placeholder="Location" 
-        onChange={(e) => handleChange(e, playerInfo, location)}
-        value={playerInfo.location}
-      />
-      <br/>
-      <TextField 
-        placeholder="Team"
-        onChange={(e) => handleChange(e, playerInfo, team)}
-        value={playerInfo.team}
-      />
-      <br/>
-      <Button variant="outlined" label="Continue" onClick={(e) => forward(e, playerInfo)}></Button>
+    <Card
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        margin: 'auto',
+        borderRadius: '7px',
+        boxShadow: 2,
+        maxWidth: '325px',
+        marginTop: '10vh',
+        gap: '40px',
+      }}
+    >
+
+    <Toolbar 
+      sx={{
+        maxWidth: '400px',
+        bgcolor: 'primary.main',
+        color: 'white',
+        fontFamily: 'default',
+        justifyContent: 'center',
+        fontSize: '18px',
+        boxShadow: 1,
+      }}
+     >
+     Create A Profile
+    </Toolbar> 
+
+    <Box sx={{margin: 'auto', alignSelf: 'center', pb: '40px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
+      <Box sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+        <TextField 
+          placeholder="Name"
+          onChange={(e) => handleChange(e.target.value, name)}
+          value={playerInfo.name}
+        />
+        <TextField
+          placeholder="Date of birth"
+          onChange={(e) => handleChange(e.target.value, dateOfBirth)}
+          value={playerInfo.dateOfBirth}
+        />
+        <TextField
+          placeholder="Location" 
+          onChange={(e) => handleChange(e.target.value, location)}
+          value={playerInfo.location}
+        />
+        <TextField 
+          placeholder="Team"
+          onChange={(e) => handleChange(e, playerInfo, team)}
+          value={playerInfo.team}
+        />
+      </Box>
+
+      <Box>
+        <Button variant="outlined" label="Next" onClick={(e) => forward(e, playerInfo)}
+          sx={{
+            py: '4px',
+            px: '12px',
+            fontWeight: 300,
+          }}
+        >
+        Next
+        </Button>
+      </Box>
     </Box>
+
+    </Card>
   )
 };
 
