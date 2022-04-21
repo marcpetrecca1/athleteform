@@ -26,7 +26,7 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
         display: 'flex',
         flexDirection: 'column',
         margin: 'auto',
-        borderRadius: '7px',
+        borderRadius: '6px',
         boxShadow: 2,
         maxWidth: '325px',
         marginTop: '10vh',
