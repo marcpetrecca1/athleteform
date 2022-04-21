@@ -42,11 +42,11 @@ const UserForm = () => {
   //   setPlayerInfo(newState);
   // }
 
-    const handleChange = (value, input) => {
-      setPlayerInfo({
-        [input]: value
-      })
-    }
+  const handleChange = (value, input) => {
+    setPlayerInfo({
+      [input]: value
+    })
+  }
   
   switch(playerInformation.step) {
     case 1:
