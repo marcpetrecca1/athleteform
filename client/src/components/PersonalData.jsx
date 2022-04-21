@@ -79,7 +79,6 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
             py: '4px',
             px: '12px',
             fontWeight: 300,
-            borderRadius: '7px',
           }}
         > 
         Continue 
