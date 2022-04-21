@@ -94,7 +94,6 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
         Back 
         </Button>
       </Box>
-
     </Box>
 
     </Card>
