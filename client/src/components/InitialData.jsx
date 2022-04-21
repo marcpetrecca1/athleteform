@@ -19,7 +19,6 @@ const InitialData = ({ playerInfo, nextStep, handleChange}) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
         margin: 'auto',
         borderRadius: '7px',
         boxShadow: 2,
@@ -37,7 +36,7 @@ const InitialData = ({ playerInfo, nextStep, handleChange}) => {
         fontFamily: 'default',
         justifyContent: 'center',
         fontSize: '18px',
-        boxShadow: 1,
+        boxShadow: 2,
       }}
      >
      Create A Profile
@@ -62,7 +61,7 @@ const InitialData = ({ playerInfo, nextStep, handleChange}) => {
         />
         <TextField 
           placeholder="Team"
-          onChange={(e) => handleChange(e, playerInfo, team)}
+          onChange={(e) => handleChange(e.target.value, team)}
           value={playerInfo.team}
         />
       </Box>

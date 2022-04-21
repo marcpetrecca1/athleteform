@@ -25,7 +25,6 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
         margin: 'auto',
         borderRadius: '7px',
         boxShadow: 2,
@@ -43,7 +42,7 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
         fontFamily: 'default',
         justifyContent: 'center',
         fontSize: '18px',
-        boxShadow: 1,
+        boxShadow: 2,
       }}
     >
     Enter Personal Details
@@ -53,23 +52,23 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
         <TextField 
           placeholder='Gender'
-          onChange={(e) => handleChange(e, playerInfo, gender)}
+          onChange={(e) => handleChange(e.target.value, gender)}
         />
         <TextField
           placeholder='Sports'
-          onChange={(e) => handleChange(e, playerInfo, sports)}
+          onChange={(e) => handleChange(e.target.value, sports)}
         />
         <TextField 
           placeholder='About'
-          onChange={(e) => handleChange(e, playerInfo, about)}
+          onChange={(e) => handleChange(e.target.value, about)}
         />
         <TextField
           placeholder='Interests' 
-          onChange={(e) => handleChange(e, playerInfo, interests)}
+          onChange={(e) => handleChange(e.target.value, interests)}
         />
         <TextField
-          placeholder='Gender'
-          onChange={(e) => handleChange(e, playerInfo, profileImage)}
+          placeholder='Upload Profile Photo'
+          onChange={(e) => handleChange(e.target.value, profileImage)}
         />
       </Box>
 
@@ -80,14 +79,14 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
             py: '4px',
             px: '12px',
             fontWeight: 300,
+            borderRadius: '7px',
           }}
         > 
         Continue 
         </Button>
-        
+
         <Button variant="outlined" label="Back" onClick={(e) => back(e, playerInfo)}
           sx={{
-            alignSelf: 'center',
             py: '4px',
             px: '12px',
             fontWeight: 300,
