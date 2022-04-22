@@ -53,22 +53,27 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
         <TextField 
           placeholder='Gender'
           onChange={(e) => handleChange(e.target.value, gender)}
+          value={playerInfo.gender}
         />
         <TextField
           placeholder='Sports'
           onChange={(e) => handleChange(e.target.value, sports)}
+          value={playerInfo.sports}
         />
         <TextField 
           placeholder='About'
           onChange={(e) => handleChange(e.target.value, about)}
+          value={playerInfo.about}
         />
         <TextField
           placeholder='Interests' 
           onChange={(e) => handleChange(e.target.value, interests)}
+          value={playerInfo.interests}
         />
         <TextField
           placeholder='Upload Profile Photo'
           onChange={(e) => handleChange(e.target.value, profileImage)}
+          value={playerInfo.profileImage}
         />
       </Box>
 
