@@ -86,7 +86,7 @@ const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interest
           variant="outlined" 
           label="Continue" 
           onClick={(e) => forward(e, step)}
-          sx={{alignSelf: 'center', py: '4px', px: '12px', fontWeight: 300}}
+          sx={{py: '4px', px: '12px', fontWeight: 300}}
         > 
         Continue 
         </Button>

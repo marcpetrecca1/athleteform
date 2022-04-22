@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, maxWidth } from '@mui/system';
-import { Toolbar, Button, Card, List, ListItem } from '@mui/material';
+import { Box, display, maxWidth } from '@mui/system';
+import { Toolbar, Button, Card, List, ListItem, autocompleteClasses } from '@mui/material';
 
 const Confirm = ({prevStep, step, name, dateOfBirth, location, team, gender, sports, about, interests, picture, postProfile}) => {
 
@@ -36,6 +36,7 @@ const Confirm = ({prevStep, step, name, dateOfBirth, location, team, gender, spo
         boxShadow: 2,
         maxWidth: '325px',
         marginTop: '10vh',
+        pb: '40px'
       }}
     >
 
@@ -54,7 +55,7 @@ const Confirm = ({prevStep, step, name, dateOfBirth, location, team, gender, spo
     </Toolbar>
 
     <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-      <List sx={{justifyContent: 'center', fontFamily: 'default', textAlign:'center'}}>
+      <List sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', fontFamily: 'default'}}>
         <ListItem>{name}</ListItem>
         <ListItem>{dateOfBirth}</ListItem>
         <ListItem>{location}</ListItem>
@@ -66,7 +67,7 @@ const Confirm = ({prevStep, step, name, dateOfBirth, location, team, gender, spo
         <ListItem>{picture}</ListItem>
       </List>
 
-      <Box sx={{}}>
+      <Box sx={{display: 'flex', flexDirection: 'space-between'}}>
         <Button 
           variant="outlined" 
           label="Back" 
