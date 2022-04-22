@@ -2,17 +2,12 @@ import React from 'react';
 import { AppBar, TextField, Toolbar, Button, IconButton, MenuIcon, Typography, Card, Grid } from '@mui/material';
 import { palette, Box } from '@mui/system';
 
-const InitialData = ({ playerInfo, nextStep, handleChange}) => {
+const InitialData = ({nextStep, step, name, dateOfBirth, location, team, addName, addDOB, addLoc, addTeam}) => {
 
-  const forward = (e, playerInfo) => {
+  const forward = (e, prev) => {
     e.preventDefault()
-    nextStep(playerInfo);
+    nextStep(prev);
   };
-
-  const name = 'name';
-  const dateOfBirth = 'dateOfBirth';
-  const location = 'location';
-  const team = 'team';
 
   return (
     <Card
@@ -46,28 +41,28 @@ const InitialData = ({ playerInfo, nextStep, handleChange}) => {
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
         <TextField 
           placeholder="Name"
-          onChange={(e) => handleChange(e.target.value, name)}
-          value={playerInfo.name}
+          onChange={(e) => addName(e.target.value)}
+          value={name}
         />
         <TextField
           placeholder="Date of birth"
-          onChange={(e) => handleChange(e.target.value, dateOfBirth)}
-          value={playerInfo.dateOfBirth}
+          onChange={(e) => addDOB(e.target.value)}
+          value={dateOfBirth}
         />
         <TextField
           placeholder="Location" 
-          onChange={(e) => handleChange(e.target.value, location)}
-          value={playerInfo.location}
+          onChange={(e) => addLoc(e.target.value)}
+          value={location}
         />
         <TextField 
           placeholder="Team"
-          onChange={(e) => handleChange(e.target.value, team)}
-          value={playerInfo.team}
+          onChange={(e) => addTeam(e.target.value)}
+          value={team}
         />
       </Box>
 
       <Box>
-        <Button variant="outlined" label="Next" onClick={(e) => forward(e, playerInfo)}
+        <Button variant="outlined" label="Next" onClick={(e) => forward(e, step)}
           sx={{
             py: '4px',
             px: '12px',

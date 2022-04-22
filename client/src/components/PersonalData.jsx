@@ -2,23 +2,17 @@ import React from 'react';
 import { AppBar, TextField, Toolbar, Button, IconButton, MenuIcon, Typography, Card, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 
-const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
+const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interests, picture, addGender, addSports, addAbout, addInterests, addPicture}) => {
 
-  const forward = (e, playerInfo) => {
+  const forward = (e, step) => {
     e.preventDefault()
-    nextStep(playerInfo);
+    nextStep(step);
   };
 
-  const back = (e, playerInfo) => {
+  const back = (e, step) => {
     e.preventDefault();
-    prevStep(playerInfo);
+    prevStep(step);
   }
-
-  const gender = 'gender';
-  const sports = 'sports';
-  const about = 'about';
-  const interests = 'interests';
-  const profileImage = 'profileImage';
 
   return (
     <Card
@@ -52,28 +46,28 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
         <TextField 
           placeholder='Gender'
-          onChange={(e) => handleChange(e.target.value, gender)}
-          value={playerInfo.gender}
+          onChange={(e) => addGender(e.target.value)}
+          value={gender}
         />
         <TextField
           placeholder='Sports'
-          onChange={(e) => handleChange(e.target.value, sports)}
-          value={playerInfo.sports}
+          onChange={(e) => addSports(e.target.value)}
+          value={sports}
         />
         <TextField 
           placeholder='About'
-          onChange={(e) => handleChange(e.target.value, about)}
-          value={playerInfo.about}
+          onChange={(e) => addAbout(e.target.value)}
+          value={about}
         />
         <TextField
           placeholder='Interests' 
-          onChange={(e) => handleChange(e.target.value, interests)}
-          value={playerInfo.interests}
+          onChange={(e) => addInterests(e.target.value)}
+          value={interests}
         />
         <TextField
           placeholder='Upload Profile Photo'
-          onChange={(e) => handleChange(e.target.value, profileImage)}
-          value={playerInfo.profileImage}
+          onChange={(e) => addPicture(e.target.value)}
+          value={picture}
         />
       </Box>
 
@@ -89,7 +83,7 @@ const PersonalData = ({playerInfo, nextStep, prevStep, handleChange}) => {
         Continue 
         </Button>
 
-        <Button variant="outlined" label="Back" onClick={(e) => back(e, playerInfo)}
+        <Button variant="outlined" label="Back" onClick={(e) => back(e, step)}
           sx={{
             py: '4px',
             px: '12px',

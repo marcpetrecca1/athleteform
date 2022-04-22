@@ -7,59 +7,107 @@ import ProfileList from './ProfileList.jsx';
 
 const UserForm = () => {
 
-  const [playerInformation, setPlayerInfo] = useState({
-    step: 1,
-    name:'',
-    dateOfBirth:'',
-    location:'',
-    team:'',
-    gender:'',
-    sports:[],
-    about:'',
-    interests:'',
-    profileImage:''
-  });
+  const [step, setStep] = useState(1);
+  const [name, setName] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [location, setLocation] = useState('');
+  const [team, setTeam] = useState('');
+  const [gender, setGender] = useState('');
+  const [sports, setSports] = useState('');
+  const [about, setAbout] = useState('');
+  const [interests, setInterests] = useState('');
+  const [picture, setPicture] = useState('');
+  const [profiles, setList] = useState([]);
 
-  const [playerList, setPlayerlist] = useState([])
-
-  const nextStep = (playerInformation) => {
-    const { step } = playerInformation;
-    setPlayerInfo({
-      step: step + 1
-    });
+  const nextStep = (step) => {
+    setStep(step + 1);
   };
 
-  const prevStep = (playerInformation) => {
-    const { step } = playerInformation;
-    setPlayerInfo({
-      step: step - 1
-    });
+  const prevStep = (step) => {
+    setStep(step - 1);
+  };
+  
+  const addName = (value) => {
+    setName(value);
   };
 
-  // const handleChange = (e, playerInformation, input) => {
-  //   let newState = JSON.parse(JSON.stringify(playerInformation));
-  //   newState[input] = e.target.value;
-  //   setPlayerInfo(newState);
-  // }
+  const addDOB = (value) => {
+    setDateOfBirth(value);
+  };
 
-  const handleChange = (value, input) => {
-    setPlayerInfo({
-      [input]: value
-    })
+  const addLoc = (value) => {
+    setLocation(value);
+  };
+
+  const addTeam = (value) => {
+    setTeam(value);
+  }
+
+  const addGender = (value) => {
+    setGender(value)
+  }
+
+  const addSports = (value) => {
+    setSports(value)
   }
   
-  switch(playerInformation.step) {
+  const addAbout = (value) => {
+    setAbout(value)
+  }
+
+  const addInterests = (value) => {
+    setInterests(value)
+  }
+
+  const addPicture = (value) => {
+    setPicture(value)
+  }
+
+  const addProfile = (profile, prevState) => {
+    prevState.push(profile);
+    setList(prevState);
+  }
+  
+  switch(step) {
     case 1:
       return (
-        <InitialData nextStep={nextStep} handleChange={handleChange} playerInfo={playerInformation} />
+        <React.Fragment>
+          <InitialData 
+            nextStep={nextStep} 
+            step={step} 
+            name={name} 
+            dateOfBirth={dateOfBirth} 
+            location={location} 
+            team={team}
+            addName={addName} 
+            addDOB={addDOB}
+            addLoc={addLoc}
+            addTeam={addTeam}
+          />
+          <ProfileList profiles={profiles}/>
+        </React.Fragment>
       )
     case 2: 
       return (
-        <PersonalData nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} playerInfo={playerInformation}/>
+        <PersonalData 
+          step={step}
+          nextStep={nextStep}
+          prevStep={prevStep}
+          gender={gender}
+          sports={sports}
+          about={about}
+          interests={interests}
+          picture={picture}
+          addGender={addGender}
+          addSports={addSports}
+          addAbout={addAbout}
+          addInterests={addInterests}
+          addPicture={addPicture}
+        />
       )
     case 3:
       return (
-        <Confirm prevStep={prevStep} playerInfo={playerInformation}/>
+        <Confirm prevStep={prevStep} profiles={profiles} addProfile={addProfile}/>
       )
   }
 };
