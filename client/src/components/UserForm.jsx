@@ -19,6 +19,10 @@ const UserForm = () => {
   const [picture, setPicture] = useState('');
   const [profiles, setList] = useState([]);
 
+  useEffect(() => {
+    getProfiles();
+  }, [profiles]);
+
   const nextStep = (step) => {
     setStep(step + 1);
   };
@@ -82,6 +86,10 @@ const UserForm = () => {
         console.log(error)
       })
   }
+
+  // const reset = () => {
+
+  // }
   
   switch(step) {
     case 1:
@@ -126,6 +134,7 @@ const UserForm = () => {
         prevStep={prevStep} 
         profiles={profiles}
         step={step} 
+        setStep={setStep}
         name={name} 
         dateOfBirth={dateOfBirth} 
         location={location} 

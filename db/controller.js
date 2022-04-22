@@ -18,20 +18,17 @@ exports.createProfile = function(req, res) {
     res.status(201).json(data);
   })
   .catch((error) => {
-    res.send(error);
-    res.sendStatus(400);
+    res.status(400).send(error);
   })
 };
 
 exports.retrieveProfiles = function(req, res) {
   return PlayerProfile.find({}).limit(5)
   .then((data) => {
-    res.send(data);
-    res.sendStatus(200);
+    res.status(200).json(data);
   })
   .catch((error) => {
-    res.send(error);
-    res.sendStatus(400);
+    res.status(400).send(error);
   })
 };
 

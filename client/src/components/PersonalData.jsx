@@ -5,7 +5,7 @@ import { Box } from '@mui/system';
 const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interests, picture, addGender, addSports, addAbout, addInterests, addPicture}) => {
 
   const forward = (e, step) => {
-    e.preventDefault()
+    e.preventDefault();
     nextStep(step);
   };
 
