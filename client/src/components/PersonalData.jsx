@@ -75,20 +75,20 @@ const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interest
       <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
         <Button 
           variant="outlined" 
-          label="Continue" 
-          onClick={(e) => forward(e, step)}
-          sx={{alignSelf: 'center', py: '4px', px: '12px', fontWeight: 300}}
-        > 
-        Continue 
-        </Button>
-
-        <Button 
-          variant="outlined" 
           label="Back" 
           onClick={(e) => back(e, step)} 
           sx={{py: '4px', px: '12px', fontWeight: 300}}
         > 
         Back 
+        </Button>
+
+        <Button 
+          variant="outlined" 
+          label="Continue" 
+          onClick={(e) => forward(e, step)}
+          sx={{alignSelf: 'center', py: '4px', px: '12px', fontWeight: 300}}
+        > 
+        Continue 
         </Button>
       </Box>
 

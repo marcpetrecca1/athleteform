@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box } from '@mui/system';
-import { Toolbar, Button, Card } from '@mui/material';
+import { Box, maxWidth } from '@mui/system';
+import { Toolbar, Button, Card, List, ListItem } from '@mui/material';
 
-const Confirm = ({nextStep, prevStep, step, name, dateOfBirth, location, team, gender, sports, about, interests, picture, postProfile}) => {
+const Confirm = ({prevStep, step, name, dateOfBirth, location, team, gender, sports, about, interests, picture, postProfile}) => {
 
   const storage = {
     name: name,
@@ -14,6 +14,11 @@ const Confirm = ({nextStep, prevStep, step, name, dateOfBirth, location, team, g
     about: about,
     interests: interests,
     photoImage: picture
+  }
+
+  const back = (e, step) => {
+    e.preventDefault();
+    prevStep(step);
   }
 
   const handleSubmit = (e, obj) => {
@@ -31,7 +36,6 @@ const Confirm = ({nextStep, prevStep, step, name, dateOfBirth, location, team, g
         boxShadow: 2,
         maxWidth: '325px',
         marginTop: '10vh',
-        gap: '40px',
       }}
     >
 
@@ -46,15 +50,41 @@ const Confirm = ({nextStep, prevStep, step, name, dateOfBirth, location, team, g
         boxShadow: 2,
       }}
     >
-    Create A Profile
+    Confirm Details
     </Toolbar>
 
-    <Box>
-      <Box>
+    <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <List sx={{justifyContent: 'center', fontFamily: 'default', textAlign:'center'}}>
+        <ListItem>{name}</ListItem>
+        <ListItem>{dateOfBirth}</ListItem>
+        <ListItem>{location}</ListItem>
+        <ListItem>{team}</ListItem>
+        <ListItem>{gender}</ListItem>
+        <ListItem>{sports}</ListItem>
+        <ListItem>{about}</ListItem>
+        <ListItem>{interests}</ListItem>
+        <ListItem>{picture}</ListItem>
+      </List>
+
+      <Box sx={{}}>
+        <Button 
+          variant="outlined" 
+          label="Back" 
+          onClick={(e) => back(e, step)} 
+          sx={{py: '4px', px: '12px', fontWeight: 300}}
+          > 
+          Back 
+        </Button>
+
+        <Button 
+          variant="outlined" 
+          label="Back" 
+          sx={{py: '4px', px: '12px', fontWeight: 300}}
+          onClick={(e) => {handleSubmit(e, storage)}}
+          >
+          Submit
+        </Button>
       </Box>
-      <Button onClick={(e) => {handleSubmit(e, storage)}}>
-        Submit
-      </Button>
     </Box>
 
     </Card>
