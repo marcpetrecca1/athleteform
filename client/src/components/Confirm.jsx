@@ -16,6 +16,11 @@ const Confirm = ({nextStep, prevStep, step, name, dateOfBirth, location, team, g
     photoImage: picture
   }
 
+  const handleSubmit = (e, obj) => {
+    e.preventDefault();
+    postProfile(obj);
+  }
+
   return (
     <Card 
       sx={{
@@ -47,7 +52,7 @@ const Confirm = ({nextStep, prevStep, step, name, dateOfBirth, location, team, g
     <Box>
       <Box>
       </Box>
-      <Button onClick={(e) => {e.preventDefault(), postProfile(storage)}}>
+      <Button onClick={(e) => {handleSubmit(e, storage)}}>
         Submit
       </Button>
     </Box>

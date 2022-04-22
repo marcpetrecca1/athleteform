@@ -80,8 +80,7 @@ const UserForm = () => {
   const postProfile = (newObject) => {
     axios.post('/players', {newObject})
       .then(({data}) => {
-        console.log(data)
-        // getProfiles();
+        getProfiles();
       })
       .catch((error) => {
         console.log(error)
