@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, TextField, Toolbar, Button, IconButton, MenuIcon, Typography, Card, Grid } from '@mui/material';
+import { AppBar, TextField, Toolbar, Button, Card } from '@mui/material';
 import { Box } from '@mui/system';
 
 const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interests, picture, addGender, addSports, addAbout, addInterests, addPicture}) => {
@@ -94,7 +94,7 @@ const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interest
 
     </Box>
 
-    </Card>
+  </Card>
   )
 };
 

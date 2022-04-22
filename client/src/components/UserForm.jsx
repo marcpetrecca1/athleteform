@@ -5,7 +5,6 @@ import Confirm from './Confirm.jsx';
 import ProfileList from './ProfileList.jsx';
 import axios from 'axios';
 
-
 const UserForm = () => {
 
   const [step, setStep] = useState(1);
@@ -19,7 +18,6 @@ const UserForm = () => {
   const [interests, setInterests] = useState('');
   const [picture, setPicture] = useState('');
   const [profiles, setList] = useState([]);
-
 
   useEffect(() => {
     getProfiles()

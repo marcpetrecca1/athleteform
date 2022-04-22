@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, TextField, Toolbar, Button, IconButton, MenuIcon, Typography, Card, Grid } from '@mui/material';
+import { AppBar, TextField, Toolbar, Button, Card} from '@mui/material';
 import { palette, Box } from '@mui/system';
 
 const InitialData = ({nextStep, step, name, dateOfBirth, location, team, addName, addDOB, addLoc, addTeam}) => {
@@ -40,7 +40,7 @@ const InitialData = ({nextStep, step, name, dateOfBirth, location, team, addName
     <Box sx={{margin: 'auto', alignSelf: 'center', pb: '40px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
       
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        
+
         <TextField 
           placeholder="Name"
           onChange={(e) => addName(e.target.value)}
