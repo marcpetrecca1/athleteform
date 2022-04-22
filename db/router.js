@@ -6,6 +6,5 @@ playerRouter.route('/')
   .get(retrieveProfiles)
   .post(createProfile)
   .delete(deleteDatabase)
-  .put();
 
 module.exports = playerRouter;

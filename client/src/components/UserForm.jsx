@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import InitialData from './InitialData.jsx';
 import PersonalData from './PersonalData.jsx';
 import Confirm from './Confirm.jsx';
 import ProfileList from './ProfileList.jsx';
+import axios from 'axios';
 
 
 const UserForm = () => {
@@ -18,6 +19,11 @@ const UserForm = () => {
   const [interests, setInterests] = useState('');
   const [picture, setPicture] = useState('');
   const [profiles, setList] = useState([]);
+
+
+  useEffect(() => {
+    getProfiles()
+  }, [profiles])
 
   const nextStep = (step) => {
     setStep(step + 1);
@@ -63,9 +69,25 @@ const UserForm = () => {
     setPicture(value)
   }
 
-  const addProfile = (profile, prevState) => {
-    prevState.push(profile);
-    setList(prevState);
+  const getProfiles = () => {
+    axios.get('/players')
+      .then(({data}) => {
+        setList(data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+  const postProfile = (newObject) => {
+    axios.post('/players', {params: newObject})
+      .then(({data}) => {
+        console.log(data)
+        getProfiles();
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
   
   switch(step) {
@@ -107,7 +129,21 @@ const UserForm = () => {
       )
     case 3:
       return (
-        <Confirm prevStep={prevStep} profiles={profiles} addProfile={addProfile}/>
+        <Confirm 
+        prevStep={prevStep} 
+        profiles={profiles}
+        step={step} 
+        name={name} 
+        dateOfBirth={dateOfBirth} 
+        location={location} 
+        team={team}
+        gender={gender}
+        sports={sports}
+        about={about}
+        interests={interests}
+        picture={picture}
+        postProfile={postProfile}
+        />
       )
   }
 };

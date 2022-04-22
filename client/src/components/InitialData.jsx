@@ -33,12 +33,14 @@ const InitialData = ({nextStep, step, name, dateOfBirth, location, team, addName
         fontSize: '18px',
         boxShadow: 2,
       }}
-     >
-     Create A Profile
+    >
+    Create A Profile
     </Toolbar> 
 
     <Box sx={{margin: 'auto', alignSelf: 'center', pb: '40px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
+      
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+        
         <TextField 
           placeholder="Name"
           onChange={(e) => addName(e.target.value)}
@@ -62,16 +64,16 @@ const InitialData = ({nextStep, step, name, dateOfBirth, location, team, addName
       </Box>
 
       <Box>
-        <Button variant="outlined" label="Next" onClick={(e) => forward(e, step)}
-          sx={{
-            py: '4px',
-            px: '12px',
-            fontWeight: 300,
-          }}
+        <Button 
+          variant="outlined" 
+          label="Next" 
+          onClick={(e) => forward(e, step)} 
+          sx={{py: '4px', px: '12px', fontWeight: 300}}
         >
         Next
         </Button>
       </Box>
+
     </Box>
 
     </Card>

@@ -43,6 +43,7 @@ const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interest
     </Toolbar>
 
     <Box sx={{margin: 'auto', alignSelf: 'center', pb: '40px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
+
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
         <TextField 
           placeholder='Gender'
@@ -72,27 +73,25 @@ const PersonalData = ({nextStep, prevStep, step, gender, sports, about, interest
       </Box>
 
       <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-        <Button variant="outlined" label="Continue" onClick={(e) => forward(e, playerInfo)}
-          sx={{
-            alignSelf: 'center',
-            py: '4px',
-            px: '12px',
-            fontWeight: 300,
-          }}
+        <Button 
+          variant="outlined" 
+          label="Continue" 
+          onClick={(e) => forward(e, step)}
+          sx={{alignSelf: 'center', py: '4px', px: '12px', fontWeight: 300}}
         > 
         Continue 
         </Button>
 
-        <Button variant="outlined" label="Back" onClick={(e) => back(e, step)}
-          sx={{
-            py: '4px',
-            px: '12px',
-            fontWeight: 300,
-          }}
+        <Button 
+          variant="outlined" 
+          label="Back" 
+          onClick={(e) => back(e, step)} 
+          sx={{py: '4px', px: '12px', fontWeight: 300}}
         > 
         Back 
         </Button>
       </Box>
+
     </Box>
 
     </Card>

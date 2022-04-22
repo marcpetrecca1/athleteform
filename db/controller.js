@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 const PlayerProfile = require("./schema");
 
 exports.createProfile = function(req, res) {
+  console.log("this is the req:", req);
   return PlayerProfile.create({
-    "name": req.body.name,
-    "dateOfBirth": req.body.dateOfBirth,
-    "location": req.body.location,
-    "team": req.body.team,
-    "gender": req.body.gender,
-    "sports": req.body.sports,
-    "about": req.body.about,
-    "interests": req.body.interests,
-    "photoImage": req.body.image
+    "name": req.params.name,
+    "dateOfBirth": req.params.dateOfBirth,
+    "location": req.params.location,
+    "team": req.params.team,
+    "gender": req.params.gender,
+    "sports": req.params.sports,
+    "about": req.params.about,
+    "interests": req.params.interests,
+    "photoImage": req.params.image
   })
   .then((data) => {
     console.log('Profile created')
