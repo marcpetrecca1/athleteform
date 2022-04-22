@@ -19,10 +19,6 @@ const UserForm = () => {
   const [picture, setPicture] = useState('');
   const [profiles, setList] = useState([]);
 
-  // useEffect(() => {
-  //   getProfiles()
-  // }, [profiles])
-
   const nextStep = (step) => {
     setStep(step + 1);
   };
