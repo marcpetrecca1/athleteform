@@ -19,9 +19,9 @@ const UserForm = () => {
   const [picture, setPicture] = useState('');
   const [profiles, setList] = useState([]);
 
-  useEffect(() => {
-    getProfiles()
-  }, [profiles])
+  // useEffect(() => {
+  //   getProfiles()
+  // }, [profiles])
 
   const nextStep = (step) => {
     setStep(step + 1);
@@ -78,7 +78,7 @@ const UserForm = () => {
   }
 
   const postProfile = (newObject) => {
-    axios.post('/players', {newObject})
+    axios.post('/players', newObject)
       .then(({data}) => {
         getProfiles();
       })
