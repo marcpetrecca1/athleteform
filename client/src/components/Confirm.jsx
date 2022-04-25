@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, display, maxWidth } from '@mui/system';
 import { Toolbar, Button, Card, List, ListItem, autocompleteClasses } from '@mui/material';
 
-const Confirm = ({prevStep, step, setStep, name, dateOfBirth, location, team, gender, sports, about, interests, picture, postProfile}) => {
+const Confirm = ({prevStep, step, setStep, name, dateOfBirth, location, team, gender, sports, about, interests, picture, postProfile, reset}) => {
 
   const storage = {
     name: name,
@@ -24,7 +24,7 @@ const Confirm = ({prevStep, step, setStep, name, dateOfBirth, location, team, ge
   const handleSubmit = (e, obj) => {
     e.preventDefault();
     postProfile(obj);
-    setStep(1)
+    reset();
   }
 
   return (

@@ -23,7 +23,7 @@ exports.createProfile = function(req, res) {
 };
 
 exports.retrieveProfiles = function(req, res) {
-  return PlayerProfile.find({}).limit(5)
+  return PlayerProfile.find({}).limit(20)
   .then((data) => {
     res.status(200).json(data);
   })

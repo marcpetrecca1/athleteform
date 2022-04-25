@@ -87,9 +87,18 @@ const UserForm = () => {
       })
   }
 
-  // const reset = () => {
-
-  // }
+  const reset = () => {
+    setStep(1)
+    setName('')
+    setDateOfBirth('')
+    setLocation('')
+    setTeam('')
+    setGender('')
+    setSports('')
+    setAbout('')
+    setInterests('')
+    setPicture('')
+  }
   
   switch(step) {
     case 1:
@@ -133,8 +142,7 @@ const UserForm = () => {
         <Confirm 
         prevStep={prevStep} 
         profiles={profiles}
-        step={step} 
-        setStep={setStep}
+        step={step}
         name={name} 
         dateOfBirth={dateOfBirth} 
         location={location} 
@@ -145,6 +153,7 @@ const UserForm = () => {
         interests={interests}
         picture={picture}
         postProfile={postProfile}
+        reset={reset}
         />
       )
   }
